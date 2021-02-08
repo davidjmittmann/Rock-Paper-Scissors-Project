@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Rock Paper Scissors</title>
+  <meta charset="UTF-8"/>
+</head>
+<body>
+  <script>
+    // Your JavaScript goes here!
+    let optionsArray = ["Rock", "Paper", "Scissors"];
+    
+   
+    //computerPlay Function 
+
+    function computerPlay(){
+    let choice = optionsArray[Math.floor(Math.random() * optionsArray.length)];
+    return choice 
+    }
+    
+    let totalPlayerScore = 0; 
+    let totalComputerScore = 0;
+
+
+    //game Function 
+    function game() { 
+    const playerPick = prompt("Rock, Paper, Scissors?");
+    let playerChoice = playerPick.toLowerCase()
+    playerSelection = playerChoice
+    let computerScore = 0; 
+    let playerScore = 0; 
+    
+    //playRound Function 
+    function playRound(playerSelection, computerSelection) {
+
+    if (playerChoice != "rock" && playerChoice !="paper" && playerChoice != "scissors" || playerChoice =="") {
+    console.log("Must enter rock, paper, or scissors")
+    } 
+
+    else if   (playerChoice == "rock" && computerChoice == "paper") { 
+    console.log("You lose! " + computerSelection + " beat " + playerSelection);
+    computerScore++ 
+    totalComputerScore++
+   
+    }
+    else  if (playerChoice == "paper" && computerChoice == "scissors") { 
+    console.log("You lose! " + computerSelection + " beat " + playerSelection); 
+    computerScore++ 
+    totalComputerScore++ 
+   
+    }
+    else if (playerChoice == "scissors" && computerChoice == "rock")  { 
+    console.log("You lose! " + computerSelection + " beat " + playerSelection); 
+    computerScore++  
+    totalComputerScore++
+   
+    } 
+    else if (playerChoice == computerChoice) { 
+    console.log("Draw!");
+    }
+
+    else { 
+    console.log("You win! " + playerSelection + " beat " + computerSelection);
+    playerScore++ 
+    totalPlayerScore++
+    }
+
+    } // Closing bracket for playRound() 
+
+    const computerChoice = computerPlay().toLowerCase()
+    computerSelection = computerChoice // a variable 
+    playRound(playerSelection, computerSelection) 
+    console.log("Player: " + playerScore + " Computer: " + computerScore)
+    
+    
+    } // Closing bracket for game() 
+   
+    
+    for (var i = 0; i <5; i++) {
+          game(i);
+    } // Closing bracket for for loop 
+   
+    console.log("Total Player Score: " + totalPlayerScore + " Total Computer Score: " + totalComputerScore)
+    
+    function winner() {
+    if (totalPlayerScore == totalComputerScore) {
+      console.log("This game is a draw!")
+    } 
+    else if (totalPlayerScore < totalComputerScore){
+      console.log("Sorry you lost!")
+    }
+    else {
+      console.log("You won!") 
+    } 
+    } //Closing bracket for winner()
+
+    winner() 
+  </script>
+</body>
+</html>
